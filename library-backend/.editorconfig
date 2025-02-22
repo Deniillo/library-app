@@ -1,0 +1,16 @@
+root = true
+
+# Common settings
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# All java files settings
+[*.java]
+max_line_length = 120
+
+# Is it work on idea or not???
