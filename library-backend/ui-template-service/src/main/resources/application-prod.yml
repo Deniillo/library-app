@@ -1,8 +1,8 @@
 server:
-    port: 80
+    port: 8080
 
 my-service:
-    url: http://my-service
+    url: http://81.94.158.164:8080
 
 thymeleaf:
     cache: true
