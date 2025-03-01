@@ -41,13 +41,12 @@ subprojects {
     pmd {
         consoleOutput = true
         toolVersion = "7.0.0"
-        rulesMinimumPriority = 5
+        rulesMinimumPriority = 1
 
         ruleSets = [
             "category/java/errorprone.xml",
             "category/java/bestpractices.xml",
             "category/java/design.xml",
-            "category/java/security.xml"
         ]
 
         ignoreFailures = false

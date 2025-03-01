@@ -11,5 +11,5 @@ plugins {
 }
 
 rootProject.name = 'library-project'
-include 'gateway'
+include 'ui-template-service'
 
