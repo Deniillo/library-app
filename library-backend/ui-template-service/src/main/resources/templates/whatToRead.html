@@ -1,19 +1,20 @@
-<html lang="ru">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рекомендации книг</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="js/tableConstructor.js"></script>
-    <script src="js/pageLoadTime.js"></script>
-    <script src="js/navigation.js"></script>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+    <script th:src="@{https://cdn.tailwindcss.com}"></script>
+    <script th:src="@{/js/tableConstructor.js}"></script>
+    <script th:src="@{/js/pageLoadTime.js}"></script>
+    <script th:src="@{/js/navigation.js}"></script>
 </head>
 <body class="bg-gray-100">
 
     <header class="bg-green-600 text-black p-5 text-center">
-        <a href="index.html">
-            <img src="images/logo.png" width="200" class="mx-auto mb-3"> 
+        <a th:href="@{/}">
+            <img th:src="@{/images/logo.png}" width="200" class="mx-auto mb-3">
         </a>
         <form class="mb-4">
             <input type="text" placeholder="Напиши сюда что ты ищешь!" class="border rounded-lg px-4 py-2 w-full sm:w-80 shadow-md">
@@ -21,9 +22,9 @@
         </form>
         <nav>
             <ul id="menu" class="flex flex-wrap space-x-2 justify-center">
-                <li><a href="profile.html" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Профиль</a></li>
-                <li><a href="whatToRead.html" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Что почитать?</a></li>
-                <li><a href="authors.html" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Авторы</a></li>
+                <li><a th:href="@{/profile}" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Профиль</a></li>
+                <li><a th:href="@{/whatToRead}" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Что почитать?</a></li>
+                <li><a th:href="@{/authors}" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Авторы</a></li>
                 <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdjFBl4JoRrP2MZbj9xX0wz0JH4YJ3CayQxJilq1GJf3hLvAQ/viewform?usp=dialog" class="menu-item bg-white rounded-full px-3 py-2 hover:bg-gray-200 text-black">Стать автором</a></li>
             </ul>
         </nav>
@@ -57,6 +58,7 @@
         </form>
 
         <div id="result" class="mt-4"></div>
+
     </main>
 
     <aside class="bg-blue-100 p-4 rounded-lg shadow-md w-full text-center mt-5">
