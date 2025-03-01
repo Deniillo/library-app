@@ -1,0 +1,35 @@
+networks:
+  dev:
+
+services:
+
+  ui-template-service:
+    build:
+      context: .
+      dockerfile: library-backend/Dockerfile
+    env_file: .env.dev
+    environment:
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      UI_SERVICE_URL: ${UI_SERVICE_URL}
+    ports:
+      - "${UI_SERVICE_PORT}:${UI_SERVICE_PORT}"
+    command: ["java", "-jar", "ui-template-service.jar", "--spring.profiles.active=${SPRING_PROFILES_ACTIVE}"]
+    networks:
+      - dev
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf.template:/etc/nginx/nginx.conf.template
+    env_file: .env.dev
+    environment:
+      UI_SERVICE_PORT: ${UI_SERVICE_PORT}
+    command: >
+      sh -c "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    depends_on:
+      - ui-template-service
+    networks:
+      - dev
