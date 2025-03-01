@@ -20,7 +20,7 @@ COPY library-backend .
 RUN chmod +x gradlew
 
 # Сборка проекта
-RUN ./gradlew clean build
+RUN ./gradlew build
 
 # Используем официальный образ OpenJDK для запуска
 FROM eclipse-temurin:21-ubi9-minimal
