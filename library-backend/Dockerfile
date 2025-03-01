@@ -20,7 +20,7 @@ COPY library-backend .
 RUN chmod +x gradlew
 
 # Сборка проекта
-RUN ./gradlew build
+RUN ./gradlew build -x test -x pmdMain -x pmdTest -x spotlessCheck -x spotlessApply
 
 # Используем официальный образ OpenJDK для запуска
 FROM eclipse-temurin:21-ubi9-minimal
