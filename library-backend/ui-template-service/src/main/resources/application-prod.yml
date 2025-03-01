@@ -1,0 +1,13 @@
+server:
+    port: 80
+
+my-service:
+    url: http://my-service
+
+thymeleaf:
+    cache: true
+
+spring:
+    devtools:
+        restart:
+            enabled: false # отключаем devtools в проде, чтобы не перезагружать лишний раз
