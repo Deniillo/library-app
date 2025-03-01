@@ -20,7 +20,7 @@ http {
     server {
         listen       80;
 
-        server_name  localhost;
+        server_name  _;
 
         location /  {
             proxy_pass http://ui-template-service:${UI_SERVICE_PORT}/;
@@ -28,7 +28,7 @@ http {
 
         # Обработка статических файлов
         location /static/ {
-            alias /path-microservice/resource/;
+            alias library-backend/ui-template-service/src/main/resources;
             gzip_static on;  # Используем предварительно сжатые файлы
             expires 30d;     # Кэширование на 30 дней
             add_header Cache-Control "public, no-transform";
